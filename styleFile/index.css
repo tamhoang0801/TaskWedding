@@ -1,0 +1,719 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   WEBSITE
+========================================================= */
+
+.website {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b8e0f9 0%,
+            #c8e2f4 45%,
+            #fff 100%
+        );
+
+    color: white;
+
+    opacity: 0;
+
+    transition:
+        opacity 1.2s ease;
+
+    overflow: hidden;
+}
+
+.website.active {
+    opacity: 1;
+}
+
+.content_Main {
+    position: relative;
+    z-index: 20;
+}
+
+.website h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.website p {
+    font-size: 18px;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.website button {
+    margin-top: 30px;
+    padding: 14px 35px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: #38bdf8;
+    color: white;
+
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    pointer-events: none;
+    overflow: hidden;
+
+    z-index: 10;
+
+    background-image: url("https://w.ladicdn.com/s768x0/649340684a3700001217851c/nen-be-doc-20250527032724-snv_b.jpg");
+
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+}
+
+
+/* =========================================================
+   WATER INTRO
+========================================================= */
+
+.water_Intro {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #102531 0%,
+            #07151d 45%,
+            #010509 100%
+        );
+
+    z-index: 100;
+
+    pointer-events: none;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SUBTLE WATER LIGHT
+========================================================= */
+
+.water_Intro::before {
+    content: "";
+
+    position: absolute;
+    inset: -20%;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 48%,
+            rgba(255,255,255,0.8) 0%,
+            rgba(255,255,255,0.35) 15%,
+            rgba(255,255,255,0) 45%
+        );
+
+    opacity: 0;
+
+    transform: scale(0.5);
+
+    animation:
+        waterLight 2.8s ease-out 1.45s forwards;
+}
+
+
+/* =========================================================
+   MAIN DROP
+========================================================= */
+
+.water_Drop {
+    position: absolute;
+
+    left: 50%;
+    top: -100px;
+
+    width: 54px;
+    height: 70px;
+
+    transform:
+        translateX(-50%)
+        scaleY(1.25);
+
+    border-radius:
+        55% 55%
+        55% 55%
+        45% 45%;
+
+    /*
+        Natural droplet shape
+    */
+
+    clip-path: polygon(
+        50% 0%,
+        61% 16%,
+        73% 31%,
+        84% 47%,
+        92% 63%,
+        93% 76%,
+        88% 87%,
+        78% 95%,
+        64% 99%,
+        50% 100%,
+        36% 99%,
+        22% 95%,
+        12% 87%,
+        7% 76%,
+        8% 63%,
+        16% 47%,
+        27% 31%,
+        39% 16%
+    );
+
+    background:
+        radial-gradient(
+            circle at 34% 23%,
+            rgba(255,255,255,0.98) 0%,
+            rgba(255, 255, 255, 0.8) 5%,
+            rgba(253, 253, 253, 0.75) 14%,
+            rgba(255, 255, 255, 0.9) 34%,
+            rgba(255, 255, 255, 0.8) 65%,
+            rgba(255, 255, 255, 0.9) 100%
+        );
+
+    box-shadow:
+        inset 5px 6px 10px rgba(255, 255, 255, 0.7),
+        inset -7px -10px 15px rgba(255, 255, 255, 0.8),
+        10px 8px 20px rgba(251, 251, 252, 0.8);
+
+    backdrop-filter: blur(3px);
+
+    opacity: 0;
+
+   
+    animation:
+        dropFall 1.5s linear forwards;
+
+    z-index: 30;
+}
+
+
+/* =========================================================
+   DROPLET HIGHLIGHT
+========================================================= */
+
+.water_Drop::before {
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+    height: 27px;
+
+    left: 15px;
+    top: 12px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.95),
+            rgba(255,255,255,0)
+        );
+
+    transform: rotate(18deg);
+
+    filter: blur(1px);
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   SMALL SECONDARY REFLECTION
+========================================================= */
+
+.water_Drop::after {
+    content: "";
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    right: 13px;
+    top: 30px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.65);
+
+    filter: blur(1px);
+}
+
+
+/* =========================================================
+   DROP FALL
+========================================================= */
+
+@keyframes dropFall {
+
+    /* Bắt đầu */
+    0% {
+        top: -90px;
+
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            scaleX(0.75)
+            scaleY(1.25);
+    }
+
+    /* Xuất hiện */
+    8% {
+        opacity: 1;
+    }
+
+    /* Rơi với hình dáng ổn định */
+    40% {
+        top: 25%;
+
+        transform:
+            translateX(-50%)
+            scaleX(0.72)
+            scaleY(1.32);
+    }
+
+    /* Tiếp tục rơi đều */
+    70% {
+        top: 43%;
+
+        transform:
+            translateX(-50%)
+            scaleX(0.75)
+            scaleY(1.28);
+    }
+
+    /* Chuẩn bị chạm */
+    92% {
+        top: 49%;
+
+        transform:
+            translateX(-50%)
+            scaleX(0.82)
+            scaleY(1.18);
+    }
+
+    /* Va chạm */
+    96% {
+        top: 50%;
+
+        transform:
+            translateX(-50%)
+            scaleX(1.35)
+            scaleY(0.55);
+
+        opacity: 1;
+    }
+
+    /* Biến mất */
+    100% {
+        top: 50%;
+
+        transform:
+            translateX(-50%)
+            scaleX(0.2)
+            scaleY(0.2);
+
+        opacity: 0;
+    }
+}
+
+.water_Trail {
+    position: absolute;
+
+    left: 50%;
+    top: -150px;
+
+    width: 90px;
+    height: 180px;
+
+    transform:
+        translateX(-50%)
+        scaleX(2);
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(220, 250, 255, 0),
+            rgba(220, 250, 255, 0.8) 15%,
+            rgba(220, 250, 255, 0.9) 40%,
+            rgba(220, 250, 255, 0.9) 70%,
+            rgba(255, 255, 255, 0.8) 100%
+        );
+
+    filter: blur(11px);
+
+    border-radius: 50%;
+
+    opacity: 0.8;
+
+    z-index: 26;
+
+    pointer-events: none;
+
+    animation:
+        dropTrail 1.5s
+        linear
+        forwards;
+}
+
+
+@keyframes dropTrail {
+
+    
+    0% {
+        top: -150px;
+
+        height: 60px;
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scaleX(0.35);
+    }
+
+
+
+   10% {
+    opacity: 0.9;
+   }
+
+
+
+    30% {
+        top: 15%;
+
+        height: 120px;
+        opacity: 0.8;
+
+        transform:
+            translateX(-50%)
+            scaleX(0.65);
+    }
+
+
+
+    55% {
+        top: 32%;
+
+        height: 170px;
+        opacity: 0.2;
+
+        transform:
+            translateX(-50%)
+            scaleX(0.85);
+    }
+
+
+    /* Gần mặt nước */
+    75% {
+        top: 42%;
+
+        height: 190px;
+
+        opacity: 0.1;
+        transform:
+            translateX(-50%)
+            scaleX(1);
+    }
+
+
+    /* Chuẩn bị va chạm */
+    92% {
+        top: 48%;
+        opacity: 0.06;
+    }
+
+
+    /* Biến mất khi chạm nước */
+    100% {
+        top: 50%;
+
+        height: 200px;
+
+        opacity: 0;
+        transform:
+            translateX(-50%)
+            scaleX(0.6);
+    }
+}
+
+.water_Ripple {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 90px;
+    height: 90px;
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgb(254, 254, 254) 0%,
+            rgba(254, 253, 253, 0.98) 20%,
+            rgba(101, 101, 101, 0.98) 45%,
+            rgb(51, 51, 51) 70%,
+            rgb(10, 10, 10) 100%
+        );
+    opacity: 0;
+    filter: blur(0.5px);
+    z-index: 20;
+    animation:
+        rippleCore 1s
+        cubic-bezier(.18,.65,.25,1)
+        1.35s forwards;
+}
+
+/* =========================================================
+   RIPPLE CORE
+========================================================= */
+
+@keyframes rippleCore {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 0.95;
+    }
+
+    15% {
+        transform:
+            translate(-50%, -50%)
+            scale(2);
+
+        opacity: 0.6;
+    }
+
+    40% {
+        transform:
+            translate(-50%, -50%)
+            scale(20);
+
+        opacity: 0.5;
+    }
+    70% {
+        transform:
+            translate(-50%, -50%)
+            scale(40);
+
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(60);
+
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   WATER LIGHT EXPANSION
+========================================================= */
+
+@keyframes waterLight {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(0.3);
+    }
+
+    25% {
+        opacity: 0.8;
+    }
+
+    65% {
+        opacity: 0.45;
+
+        transform:
+            scale(1.4);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            scale(2.4);
+    }
+}
+
+
+/* =========================================================
+   EXTRA MICRO RIPPLES
+========================================================= */
+
+.water_Intro::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    border:
+        1px solid rgba(255,255,255,0.8);
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.35);
+
+    animation:
+        microRipple 1.8s
+        ease-out
+        1.55s forwards;
+}
+
+
+/* =========================================================
+   INTRO FADE OUT
+========================================================= */
+
+.water_Intro {
+    animation:
+        introFadeOut 1s
+        ease-out
+        3.8s forwards;
+}
+
+
+@keyframes introFadeOut {
+
+    0% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .website h1 {
+        font-size: 38px;
+    }
+
+    .website p {
+        padding: 0 25px;
+        font-size: 16px;
+    }
+
+    .water_Drop {
+        width: 42px;
+        height: 56px;
+    }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .water_Drop,
+    .water_Ripple,
+    .water_Intro,
+    .water_Intro::before,
+    .water_Intro::after,
+    .water_Ripple::before,
+    .water_Ripple::after {
+        animation: none;
+    }
+
+    .water_Intro {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .website {
+        opacity: 1;
+    }
+}
