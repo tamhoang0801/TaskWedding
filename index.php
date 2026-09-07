@@ -12,11 +12,9 @@
         <div class="background">  
         </div>
         <div class="content_Main">
-            
         </div>
         <audio src=""></audio>
     </main>
-    <!-- WATER INTRO -->
     <div class="water_Intro">
         <span class="water_Trail"></span>
         <div class="water_Drop">

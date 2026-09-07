@@ -3,5 +3,6 @@ function  displayScreen() {
     setTimeout(() => {
         screen.classList.add("active");
     }, 500);
+    
 }
 displayScreen();
