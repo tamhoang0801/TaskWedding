@@ -609,13 +609,11 @@ body {
     transform:
         translate(-50%, -50%)
         scale(0);
-
     border:
         1px solid rgba(255,255,255,0.8);
 
     box-shadow:
         0 0 20px rgba(255,255,255,0.35);
-
     animation:
         microRipple 1.8s
         ease-out

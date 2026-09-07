@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="styleFile/index.css">
     <title>Thiệp mời đám cưới</title>
 </head>
-
 <body>
     <main class="website">
         <div class="background">  
@@ -18,7 +17,6 @@
     <div class="water_Intro">
         <span class="water_Trail"></span>
         <div class="water_Drop">
-            
         </div>       
         <div class="water_Ripple"></div>
     </div>
