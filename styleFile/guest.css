@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.guest {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(241, 239, 239);
+    z-index: 2;
+    color: #70502f;
+}
+.title_Guest,.total_Guest {
+    position: fixed;
+    color: #70502f;
+    font-size: 30px;
+    height: 80px;
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
+    padding-top: 20px;
+    padding-left: 30px;
+}
+.total_Guest {
+    display: flex;
+    top: 0;
+    z-index: 6;
+}
+.column_Table {
+    position: fixed;
+    top: 80px;
+    z-index: 6;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 30px;
+    padding: 10px;
+    font-weight: bold;
+    height: 80px;
+    background-color: black;
+    color: #fff;
+}
+#guest_List {
+    margin-top: 160px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.6);
+    gap: 10px;
+    width: 100%;
+
+}
+
+
+
+.guest_Items {
+    display: flex;
+    flex-direction: row;
+    padding-left: 5%;
+    width: 100%;
+    font-size: 30px;
+    text-align: start;
+    border: solid black 2px;
+    text-align: start;
+}
+.guest_Item_Value {
+    width: 25%;
+    margin-left: 40px;
+    text-align: start;
+    height: 80px;
+}
+.sort_Massage {
+    width: 20%;
+    
+}
